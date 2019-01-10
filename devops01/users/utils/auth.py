@@ -12,8 +12,12 @@ class FirstAuthtication(object):
         pass
 
 class Authtication(object):
-    def authenticate(self,request):
-        token = request._request.GET.get('token')
+    #def authenticate(self,request,*args,**kwargs):
+    def authenticate(self, request, *args, **kwargs):
+        #print(request)
+        #token = request._request.POST.get('token')
+        token = request.META.get("HTTP_TOKEN")
+        print(token)
         token_obj = models.UserToken.objects.filter(token=token).first()
         ret = {'code': 1000, 'msg': None}
         if not token_obj:

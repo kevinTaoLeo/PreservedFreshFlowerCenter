@@ -25,7 +25,7 @@ SECRET_KEY = 'biok6f5k5d!9k%&8zmj_*4)(!il!qg6c&famv)velzx#tzg26x'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['172.27.3.100','172.27.3.99','172.27.3.37']
 
 
 # Application definition
@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'users.apps.UsersConfig',
     'rest_framework',
+    'order',
 ]
 
 MIDDLEWARE = [
@@ -121,14 +122,12 @@ USE_L10N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.11/howto/static-files/
+
 
 STATIC_URL = '/static/'
 
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES":['users.utils.auth.FirstAuthtication','users.utils.auth.Authtication'],
-    #"UNAUTHENTICATED_USER":None,
-    #"UNAUTHENTICATED_TOKEN":None,
     "DEFAULT_PERMISSION_CLASSES":['users.utils.permission.SVIPPermission',],
 }
+

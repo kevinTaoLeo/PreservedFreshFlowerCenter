@@ -1,6 +1,5 @@
 from django.db import models
 
-# Create your models here.
 class UserInfo(models.Model):
     ###定义用户权限级别
     user_type_choices = (
